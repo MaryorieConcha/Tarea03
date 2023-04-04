@@ -7,7 +7,7 @@ public abstract class Trabajador {
 	private String estadoCivil;
 	private String rut;
 	private String horarioDeTrabajo;
-	public Clinica clinica;
+	private Clinica clinica;
 
 	public Trabajador(String nombre, String tituloProfesional, String direccion,
 					  String estadoCivil, String rut, String horarioDeTrabajo,
