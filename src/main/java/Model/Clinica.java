@@ -7,7 +7,7 @@ public class Clinica {
 	private String nombre;
 	private String[] direccionesAsociadas;
 	private TipoDeClinica tipoDeClinica;
-	private ArrayList<EspecialidadMedica> especialidades;
+	private ArrayList<EspecialidadMedica> espMedics;
 	private ArrayList<Trabajador> trabajadores;
 
 	public String[] getDireccionesAsociadas() {
@@ -25,8 +25,8 @@ public class Clinica {
 	public void setTipoDeClinica(TipoDeClinica tipoDeClinica) {
 		this.tipoDeClinica = tipoDeClinica;
 	}
-	public EspecialidadMedica agregarEspecialidades (EspecialidadMedica especialidad) {
-		this.especialidades.add(especialidad);
+	public EspecialidadMedica agregarEspecialidadMedica (EspecialidadMedica especialidad) {
+		this.espMedics.add(especialidad);
 		return especialidad;
 	}
 
@@ -64,9 +64,9 @@ public class Clinica {
 
 
 	//Obtener una lista de médicos de una especialidad médica específica de acuerdo a su nombre.
-	public List<Medico> obtenerMedicoPorEspecialidad (EspecialidadMedica especialidadMedica){
+	public List<Medico> obtenerMedicoPorEspecialidad (){
 		List<Medico> medicos = new ArrayList<>();
-		for ( : especialidadMedica.get){
+		for (EspecialidadMedica especialidadMedica : this.espMedics){
 			medicos.addAll(especialidadMedica.getMedicos());
 		}
 		return medicos;
@@ -74,5 +74,11 @@ public class Clinica {
 
 
 //Obtener un administrativo de una especialidad clínica específica de acuerdo a su nombre y/o rut.
-	public
+	public List<Administrativo> obtenerAdminPorEspecialidad(){
+		List<Administrativo> administrativos = new ArrayList<>();
+		for (EspecialidadMedica especialidadMedica : this.espMedics){
+			administrativos.addAll(especialidadMedica.getAdministrativos());
+		}
+		return administrativos;
+	}
 }
